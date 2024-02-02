@@ -1,0 +1,24 @@
+{
+  "name": "radar-simulator",
+  "version": "1.0.0",
+  "description": "Websites checker for compliance with various regulatory laws",
+  "main": "app.js",
+  "scripts": {
+    "devStart": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiarazetaa/radar-simulator.git"
+  },
+  "author": "Chiara Zuffi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chiarazetaa/radar-simulator/issues"
+  },
+  "homepage": "https://github.com/chiarazetaa/radar-simulator#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.3",
+    "puppeteer": "^21.11.0"
+  }
+}

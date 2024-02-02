@@ -1,0 +1,48 @@
+:root {
+    --bg-color: #2C2C2E;
+    --accent-color: #169e74;
+    --hover-color: #0e6348;
+    --text-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.4;
+    color: var(--text-color);
+    margin-top: 5%;
+}
+
+.container {
+    width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 50px auto;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    background-color: var(--accent-color);
+    padding: 10px 15px;
+    border: none;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
