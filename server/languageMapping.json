@@ -1,0 +1,36 @@
+{
+    "languageMapping": [
+        {
+            "id": "EN",
+            "lang": "English"
+        },
+        {
+            "id": "IT",
+            "lang": "Italian"
+        },
+        {
+            "id": "ES",
+            "lang": "Spanish"
+        },
+        {
+            "id": "FR",
+            "lang": "French"
+        },
+        {
+            "id": "DE",
+            "lang": "German"
+        },
+        {
+            "id": "PT",
+            "lang": "Portuguese"
+        },
+        {
+            "id": "NL",
+            "lang": "Dutch"
+        },
+        {
+            "id": "RU",
+            "lang": "Russian"
+        }
+    ]
+}

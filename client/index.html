@@ -5,21 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radar Simulator</title>
-    <script type="text/javascript" src="puppeteer.js"></script>
+    <script type="text/javascript" src="checkTerms.js"></script>
     <link rel="icon" type="image/x-icon" href="radar-icon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Radar Simulator</h1>
-        <label for="url">Enter URL:</label>
-        <input type="text" id="url" name="url" required>
-        <br>
-        <button type="button" onclick="search(document.getElementById('url').value)">Search</button>
+        <div class="search">
+            <h1>Radar Simulator</h1>
+            <label for="url">Enter URL:</label>
+            <input type="text" id="url" name="url" required>
+            <button type="button" onclick="search(document.getElementById('url').value)">Search</button>
+        </div>
+        <div class="results">
+            <p>
+                <span id="urlResult"></span>
+                <br>
+                <span id="languageResult"></span>
+                <br>
+                <span id="targetUrlResult"></span>
+            </p>
+        </div>
     </div>
 </body>
 
