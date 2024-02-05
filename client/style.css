@@ -1,8 +1,8 @@
 :root {
     --bg-color: #2C2C2E;
-    --accent-color: #169e74;
+    --accent-color: #1CC691;
     --hover-color: #0e6348;
-    --text-color: #ffffff;
+    --text-color: #F1F1F1;
 }
 
 * {
@@ -13,7 +13,7 @@
 
 body {
     background-color: var(--bg-color);
-    font-family: 'VT323';
+    font-family: "VT323", monospace;
     font-size: x-large;
     line-height: 1.3;
     color: var(--text-color);
@@ -21,7 +21,7 @@ body {
 }
 
 .container {
-    width: 60%;
+    width: 55%;
     margin: 50px auto;
 }
 
@@ -40,11 +40,12 @@ button {
     cursor: pointer;
     color: #ffffff;
     background-color: var(--accent-color);
-    padding: 0.3em;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border: none;
-    font-family: 'VT323';
-    font-size: large;
-    border-radius: 8px;
+    font-family: "VT323", monospace;
+    font-size: x-large;
+    border-radius: 2rem;
     margin-right: 0.6em;
 }
 
@@ -59,7 +60,7 @@ button:hover {
 
 input {
     padding: 0.1em;
-    font-family: 'VT323';
+    font-family: "VT323", monospace;
     font-size: x-large;
     width: 100%;
     margin-bottom: 1em;
