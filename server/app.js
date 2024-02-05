@@ -29,18 +29,26 @@ app.post('/check-terms', async function (req, res) {
         // extract page content
         let content = await page.content();
 
-        // use langdetect library to detect the page language
-        let pageLanguageId = langdetect.detect(content)[0].lang;
-        let pageLanguage = '';
-        if (_.find(languageMapping, function (el) { return el.id === _.upperCase(pageLanguageId) })) {
-            pageLanguage = _.find(languageMapping, function (el) { return el.id === _.upperCase(pageLanguageId) }).lang;
+        // detect the page language by getting the "lang" attribute of the HTML page
+        let pageLanguageId = await page.evaluate('document.querySelector("html").getAttribute("lang")');
+
+        // if not found use langdetect library to detect the page language
+        if (!pageLanguageId) {
+            pageLanguageId = langdetect.detect(content)[0].lang;
         }
 
-        // find the target url
-        let targetURL = await getTargetURL(page, pageLanguageId);
-        await browser.close();
+        if (pageLanguageId && _.find(languageMapping, function (el) { return el.id === _.upperCase(pageLanguageId) })) {
+            let pageLanguage = _.find(languageMapping, function (el) { return el.id === _.upperCase(pageLanguageId) }).lang;
+            
+            // find the target url
+            let targetURLObj = await getTargetURL(page, pageLanguageId);
+            await browser.close();
 
-        res.status(200).send({ lang: pageLanguage, targetURL: targetURL });
+            res.status(200).send({ lang: pageLanguage, targetURL: targetURLObj.targetURL, matchingString: targetURLObj.matchingString });
+        } else {
+            await browser.close();
+            res.status(200).send({ lang: '', targetURL: '', matchingString: '' });
+        }
     } catch (error) {
         console.error('Error:', error);
         res.status(500).send('Internal Server Error');
@@ -59,18 +67,20 @@ async function getTargetURL(page, pageLanguageId) {
     });
 
     // find the first link containing at least one string from searchStrings
+    let matchingString = '';
     let targetURL = _.find(links, function (link) {
         link = _.lowerCase(link);
         return searchStrings.some(function (string) { 
-            string = _.lowerCase(string);
-            return link.includes(string) 
+            matchingString = string;
+            return link.includes(string);
         });
     });
     if (targetURL) {
         console.log('Target URL found: ' + targetURL);
+        console.log('Matching string: ' + matchingString);
     } else {
         console.log('No matching link found.');
     }
 
-    return targetURL;
+    return {targetURL: targetURL, matchingString: matchingString};
 }

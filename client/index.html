@@ -17,18 +17,22 @@
             <h1>Radar Simulator</h1>
             <label for="url">Enter URL:</label>
             <input type="text" id="url" name="url" required>
-            <button type="button" onclick="search(document.getElementById('url').value)">Search</button>
+            <div class="buttons">
+                <button type="button" onclick="search(document.getElementById('url').value)">Search</button>
+            </div>
         </div>
-        <div class="results">
-            <p>
+        <div>
+            <span id="noUrl"></span>
+            <p id="results">
                 <span id="urlResult"></span>
                 <br>
                 <span id="languageResult"></span>
                 <br>
                 <span id="targetUrlResult"></span>
+                <br>
+                <span id="matchingStringResult"></span>
             </p>
         </div>
     </div>
 </body>
-
 </html>
