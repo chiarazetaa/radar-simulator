@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radar Simulator</title>
+    <title>History</title>
     <script type="text/javascript" src="checkTerms.js"></script>
     <link rel="icon" type="image/x-icon" href="radar-icon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,27 +18,11 @@
     <div class="container">
         <div class="search">
             <div class="history">
-                <a href="./history.html">History</a>
+                <a href="./index.html">Back</a>
             </div>
-            <h1>Radar Simulator</h1>
-            <label for="url">Enter URL:</label>
-            <input type="text" id="url" name="url" required>
-            <div class="buttons">
-                <button type="button" onclick="search(document.getElementById('url').value)">Search</button>
-            </div>
-        </div>
-        <div>
-            <!-- progress bar -->
-            <div id="loading"></div>
-            <!-- no results -->
-            <span id="noUrl"></span>
-            <!-- results found -->
-            <p id="results">
-                <span id="urlResult"></span><br>
-                <span id="languageResult"></span><br>
-                <span id="targetUrlResult"></span><br>
-                <span id="matchingStringResult"></span>
-            </p>
+            <h1>History</h1>
+            <p id="historyResults"></p>
+            <p id="noHistoryResults"></p>
         </div>
     </div>
 </body>

@@ -1,3 +1,4 @@
+// search
 async function search(url) {
     let loading = document.getElementById('loading');
     let noUrl = document.getElementById('noUrl');
@@ -9,13 +10,13 @@ async function search(url) {
 
     // clear results and show loading bar
     results.style.display = 'none';
-    loading.innerHTML = `
-    <div class="progress" style="height:10px">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%; height:10px"></div>
-    </div>`;
 
     if (url && url !== '') {
         noUrl.style.display = 'none';
+        loading.innerHTML = `
+        <div class="progress" style="height:10px">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%; height:10px"></div>
+        </div>`;
     } else {
         noUrl.style.display = 'block';
         noUrl.innerText = 'Please insert URL';
@@ -63,4 +64,45 @@ async function search(url) {
         noUrl.innerText = 'Something went wrong';
         console.error("Error:", error);
     }
+}
+
+window.onload = function() {
+    // history
+    async function showHistory() {
+        let historyResults = document.getElementById('historyResults');
+        let noHistoryResults = document.getElementById('noHistoryResults');
+        if (historyResults && noHistoryResults) {
+            try {
+                let response = await fetch('/readFile', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                if (response) {
+                    let text = '<ul>';
+                    let responseJson = await response.json();
+                    for (let element of responseJson) {
+                        let lang = (element.lang && element.lang !== '') ? element.lang : 'Language not supported';
+                        let targetURL = (element.targetURL && element.targetURL !== '') ? `<a href="${element.targetURL}" target="__blank">${element.targetURL}</a>` : 'No matching link found';
+                        let matchingString = (element.matchingString && element.matchingString !== '') ? element.matchingString : '\\';
+                        text += `<li style="margin-bottom:1em">
+                            ${element.date} | 
+                            <span style="color: #169e74">URL:</span> <a href="${element.url}" target="__blank">${element.url}</a> | 
+                            <span style="color: #169e74">LANG:</span> ${lang}<br>
+                            <span style="color: #169e74">TARGET URL:</span> ${targetURL} | 
+                            <span style="color: #169e74">MATCHING STRING:</span> ${matchingString}
+                        </li>`;
+                    }
+                    text += '</ul>';
+                    historyResults.innerHTML = text;
+                } else {
+                    noHistoryResults.innerText = 'Something went wrong';
+                }
+                return;
+            } catch (error) {
+                noHistoryResults.innerText = 'Something went wrong';
+                console.error("Error:", error);
+            }   
+        }
+    }
+    showHistory();
 }

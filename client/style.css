@@ -1,7 +1,6 @@
 :root {
     --bg-color: #2C2C2E;
-    --accent-color: #1CC691;
-    --hover-color: #0e6348;
+    --accent-color: #169e74;
     --text-color: #F1F1F1;
 }
 
@@ -32,25 +31,34 @@ body {
     margin-bottom: 1em;
 }
 
+.history {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 h1 {
     font-size: xxx-large;
 }
 
 button {
     cursor: pointer;
-    color: #ffffff;
+    color: var(--text-color);
     background-color: var(--accent-color);
     padding-left: 1rem;
     padding-right: 1rem;
-    border: none;
     font-family: "VT323", monospace;
     font-size: x-large;
+    border: none;
     border-radius: 2rem;
     margin-right: 0.6em;
 }
 
 button:hover {
-    background-color: var(--hover-color);
+    background-color: var(--bg-color);
+    border: solid 1px var(--accent-color);
+    color: var(--accent-color);
 }
 
 .buttons {
@@ -68,4 +76,9 @@ input {
 
 a, a:visited {
     color: var(--text-color);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: var(--accent-color);
 }
