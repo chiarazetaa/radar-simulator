@@ -4,7 +4,8 @@
   "description": "Websites checker for compliance with various regulatory laws",
   "main": "app.js",
   "scripts": {
-    "devStart": "nodemon app.js"
+    "devStart": "nodemon app.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,11 @@
     "lodash": "^4.17.21",
     "nodemon": "^3.0.3",
     "puppeteer": "^21.11.0"
+  },
+  "devDependencies": {
+    "chai": "^5.0.3",
+    "esm": "^3.2.25",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.4"
   }
 }
