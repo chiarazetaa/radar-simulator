@@ -6,7 +6,7 @@ Website Compliance Checker: a program to check if your website has a "Terms and 
 
 ### Prerequisites
 #### Node.js
-- Ensure you have Node.js installed on your machine. You can download it from https://nodejs.org/.
+- Ensure you have Node.js installed on your machine. You can download it from [Node.js official website](https://nodejs.org/).
 - Recommended version: 20.14.0.
 #### npm (Node Package Manager)
 - The project uses npm for managing dependencies. Verify that npm is installed with your Node.js installation.
@@ -68,5 +68,6 @@ Enhancements (if more time available):
 - User options for saving or deleting past research.
 ### Contact Information
 Chiara Zuffi
-- Email: chiara.zuffi19@gmail.com 
+- Email: chiara.zuffi19@gmail.com
 - GitHub: https://github.com/chiarazetaa
+- LinkedIn: https://www.linkedin.com/in/zuffichiara/
